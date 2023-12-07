@@ -1,0 +1,339 @@
+header {
+    position: relative;
+    width: 100%;
+    height: var(--header-height);
+}
+
+header .header {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: var(--header-padding);
+    background: var(--color2-bg);
+    box-shadow: var(--shadow);
+}
+
+header.float .header {
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    align-items: center;
+    height: var(--header-height-float);
+}
+
+header.float .header .logo {
+    display: none;
+}
+
+header .header .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: var(--max-width);
+}
+
+header .header .logo {
+    margin: auto 0;
+    width: 100%;
+    max-width: 200px;
+}
+
+header .header .logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+header .header nav {
+    z-index: 100;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+header .header nav ul {
+    display: flex;
+    gap: 5px;
+    list-style: none;
+}
+
+header .header nav ul li {
+    position: relative;
+    display: flex;
+    opacity: 0.6;
+    transition: all 0.2s ease;
+}
+
+header .header nav ul li.active,
+header .header nav ul li:hover {
+    opacity: 1;
+    transition: all 0.2s ease;
+}
+
+header .header nav ul li a {
+    padding: 10px;
+    font-family: link;
+    font-size: 1.1rem;
+    color: var(--color2-txt);
+    text-decoration: none;
+}
+
+header .header nav ul li:hover .sublist {
+    max-height: 500px;
+    transition: all 0.2s ease;
+}
+
+header .header nav ul li .sublist {
+    /*    display: none;*/
+    display: flex;
+    position: absolute;
+    top: calc(100% + 20px);
+    left: 50%;
+    transform: translate(-50%);
+    width: 150px;
+    max-height: 0;
+    overflow: hidden;
+    background: var(--color2-bg);
+    border-radius: 0 0 4px 4px;
+    box-shadow: var(--shadow);
+    transition: all 0.2s ease;
+}
+
+header .header nav ul li .sublist ul {
+    display: flex;
+    flex-direction: column;
+}
+
+header .header nav ul li .sublist ul li a {
+    font-size: 1.2rem;
+}
+
+/* burguer menu*/
+header .header button.menu {
+    display: none;
+    padding: 10px;
+    background: transparent;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: all 0.2s ease;
+}
+
+header .header button.menu:active,
+header .header button.menu:hover {
+    opacity: 1;
+    transition: all 0.2s ease;
+}
+
+header .header button.menu svg {
+    font-size: 1.2rem;
+}
+
+
+
+
+
+
+
+
+@media (max-width: 900px) {
+
+    header,
+    header .header {
+        z-index: 1000;
+        height: var(--header-height-float);
+        align-items: center;
+    }
+
+    header {}
+
+    header .header {
+        position: fixed;
+        top: 0;
+    }
+
+    header.float .header .logo {
+        display: block;
+    }
+
+    header .header button.menu {
+        display: block;
+    }
+
+    header .header .container {
+        flex-direction: row;
+    }
+
+    header .header .logo {
+        margin: 0 auto;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    header.open-burguer .header nav {
+        left: 0;
+        transition: all 0.2s ease;
+    }
+
+    header .header nav {
+        position: fixed;
+        left: -100%;
+        bottom: 0;
+        z-index: 100;
+        width: 100%;
+        max-width: 250px;
+        height: calc(100vh - var(--header-height-float));
+        padding: 10px 20px;
+        background: var(--color3-bg);
+        z-index: 100;
+        justify-content: flex-start;
+        transition: all 0.2s ease;
+        overflow-x: auto;
+        box-shadow: 3px 0 6px 0 rgba(0, 0, 0, 0.4);
+    }
+
+    header .header nav ul {
+        flex-direction: column;
+        /*        list-style: none;*/
+    }
+
+    header .header nav ul li {
+        position: unset;
+        display: flex;
+        flex-direction: column;
+        opacity: 1;
+    }
+
+    header .header nav ul li a {
+        font-size: 1.2rem;
+        color: var(--color3-txt);
+        opacity: 0.7;
+        transition: all 0.2s ease;
+        letter-spacing: 2px;
+    }
+    
+    header .header nav ul li a:hover {
+        opacity: 1;
+        transition: all 0.2s ease;
+    }
+
+    header .header nav ul li .sublist {
+        position: unset;
+        transform: none;
+        width: 100%;
+        max-height: unset;
+        overflow: unset;
+        background: transparent;
+        box-shadow: unset;
+        transition: unset;
+        padding-left: 20px;
+    }
+
+    header .header nav ul li .sublist ul {
+        display: flex;
+        flex-direction: column;
+    }
+
+    header .header nav ul li .sublist ul li a {
+        font-size: 1rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**/

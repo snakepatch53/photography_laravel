@@ -1,0 +1,20 @@
+:root {
+    --danger: #c71c22;
+    --info: #2fa4e7;
+    --warn: #eab518;
+    --success: #73a839;
+    
+    
+    
+    
+    --color1-bg: #d34240;
+    --color1-txt1: #FFFFFF;
+    
+    --color2-bg: #FFFFFF;
+    --color2-txt: #0f0f0f;
+    
+    --color3-bg: #000000;
+    --color3-txt: #ececec;
+}
+
+body.dark {}

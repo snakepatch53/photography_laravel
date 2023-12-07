@@ -1,0 +1,79 @@
+/*
+@font-face {
+    src: url('./../font.general/Roboto-Regular.ttf');
+    src: local("roboto");
+    font-weight: bold;
+    font-family: logo;
+}
+*/
+
+@font-face {
+    src: url('./../font.general/Montserrat-Regular.ttf');
+    font-family: title;
+}
+
+@font-face {
+    src: url('./../font.general/Sofia-Regular.ttf');
+    font-family: link;
+}
+
+@font-face {
+    src: url('./../font.general/Montserrat-Regular.ttf');
+    font-family: content;
+}
+
+:root {
+    --max-width: 1200px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: content, sans-serif;
+    font-weight: normal;
+/*    user-select: none;*/
+    outline: none;
+    border-style: none;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding: var(--header-height);
+}
+
+body.dark {
+    background: #363636;
+}
+
+img {
+    pointer-events: none;
+}
+
+@media (max-width: 500px) {
+    * {
+        --padding: 25px;
+    }
+}
+
+@media (max-width: 400px) {
+    * {
+        --padding: 10px;
+    }
+}
+
+@media (max-width: 300px) {
+    * {
+        --padding: 5px;
+    }
+}
+
+/* _____________ SCROLL _ STYLES ________________ */
+.scroll-style::-webkit-scrollbar {
+    width: 6px;
+}
+
+.scroll-style::-webkit-scrollbar-thumb {
+    background: var(--color1-bg);
+    border-radius: 10px;
+}
