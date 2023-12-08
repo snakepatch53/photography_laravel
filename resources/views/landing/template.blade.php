@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" href="{{ asset('/img/icon.png') }}">
-    <link rel="stylesheet" href="{{ asset('/library.general/fontawesome/css/all.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('/css.general/config.css') }}">
-    <link rel="stylesheet" href="{{ asset('/css.general/theme1.css') }}">
-    <link rel="stylesheet" href="{{ asset('/css.landing/general.css') }}">
-    <link rel="stylesheet" href="{{ asset('/css.landing/header.css') }}">
-    <link rel="stylesheet" href="{{ asset('/css.landing/footer.css') }}">
+    <link rel="icon" href="{{ asset('/public/img/icon.png') }}">
+    <link rel="stylesheet" href="{{ asset('/public/library.general/fontawesome/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/public/css.general/config.css') }}">
+    <link rel="stylesheet" href="{{ asset('/public/css.general/theme1.css') }}">
+    <link rel="stylesheet" href="{{ asset('/public/css.landing/general.css') }}">
+    <link rel="stylesheet" href="{{ asset('/public/css.landing/header.css') }}">
+    <link rel="stylesheet" href="{{ asset('/public/css.landing/footer.css') }}">
     @yield('head')
     <title>
         {{-- {{ $info['name'] }} --}}
@@ -31,7 +31,7 @@
 
                 <div class="logo">
                     <a href="#">
-                        <img src="{{ asset('/img/logo.png') }}" alt="logo">
+                        <img src="{{ asset('/public/img/logo.png') }}" alt="logo">
                     </a>
                 </div>
 
@@ -116,7 +116,7 @@
             <div class="col col-1">
                 <div class="logo">
                     <a href="#">
-                        <img src="{{ asset('/img/logo.png') }}" alt="logo">
+                        <img src="{{ asset('/public/img/logo.png') }}" alt="logo">
                     </a>
                 </div>
                 <b>Follow Us</b>
@@ -177,8 +177,8 @@
         </div>
     </footer>
 
-    <script src="{{ asset('/library.general/fontawesome/js/all.min.js') }}"></script>
-    <script src="{{ asset('/js.landing/general.js') }}"></script>
+    <script src="{{ asset('/public/library.general/fontawesome/js/all.min.js') }}"></script>
+    <script src="{{ asset('/public/js.landing/general.js') }}"></script>
 </body>
 
 </html>

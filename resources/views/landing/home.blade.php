@@ -3,14 +3,14 @@
 @section('title', 'Home')
 
 @section('head')
-    <link rel="stylesheet" href="{{ asset('/css.landing/home.css') }}">
+    <link rel="stylesheet" href="{{ asset('/public/css.landing/home.css') }}">
 @endsection
 
 @section('content')
     <section class="banner">
         <div class="container">
             <div class="background">
-                <img src="{{ asset('/img/banner.png') }}" alt="banner">
+                <img src="{{ asset('/public/img/banner.png') }}" alt="banner">
             </div>
             <div class="content">
                 <p><b>It's not just a picture, it's a story</b></p>
@@ -27,7 +27,7 @@
                 <li>
                     <h4>Weddings</h4>
                     <div class="img">
-                        <img src="{{ asset('/img.services/1.jpg') }}" alt="weddings">
+                        <img src="{{ asset('/public/img.services/1.jpg') }}" alt="weddings">
                     </div>
                     <a href="#">See Gallery</a>
                     <p>
@@ -39,7 +39,7 @@
                 <li>
                     <h4>Quinces | Sweet16's</h4>
                     <div class="img">
-                        <img src="{{ asset('/img.services/2.jpg') }}" alt="quinces">
+                        <img src="{{ asset('/public/img.services/2.jpg') }}" alt="quinces">
                     </div>
                     <a href="#">See Gallery</a>
                     <p>
@@ -50,7 +50,7 @@
                 <li>
                     <h4>Portraits</h4>
                     <div class="img">
-                        <img src="{{ asset('/img.services/3.jpg') }}" alt="portraits">
+                        <img src="{{ asset('/public/img.services/3.jpg') }}" alt="portraits">
                     </div>
                     <a href="#">See Gallery</a>
                     <p>
