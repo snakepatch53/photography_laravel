@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
             InfoSeeder::class,
             ContactSeeder::class,
             ServiceSeeder::class,
+            VideoSeeder::class,
+            PhotoSeeder::class,
             // UserSeeder::class,
         ]);
         // \App\Models\User::factory(10)->create();

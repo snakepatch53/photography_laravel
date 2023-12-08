@@ -37,10 +37,24 @@
 
                 <nav class="scroll-style">
                     <ul>
-                        <li class="{{ request()->is('/') ? 'active' : '' }}">
+                        <li class="{{ Route::is('home') ? 'active' : '' }}">
                             <a href="{{ route('home') }}">Home</a>
                         </li>
-                        <li>
+
+                        <li class="{{ Route::is('services') ? 'active' : '' }}">
+                            <a href="{{ route('services') }}">Services</a>
+                            <div class="sublist">
+                                <ul>
+                                    @foreach ($services as $service)
+                                        <li>
+                                            <a href="{{ $service->service_url }}">{{ $service->service_name }}</a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </li>
+                        {{-- 
+                            <li>
                             <a href="#">Weddings</a>
                             <div class="sublist">
                                 <ul>
@@ -69,7 +83,7 @@
                                     </li>
                                 </ul>
                             </div>
-                        </li>
+                        </li> --}}
                         <li>
                             <a href="#">Products</a>
                             <div class="sublist">

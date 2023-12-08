@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\LandingController;
 use App\Models\Contact;
 use App\Models\Info;
 use App\Models\Service;
+use App\Models\Video;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,17 +19,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group([], function () {
-    Route::get('/', function () {
-        $info = Info::first();
-        $contacts = Contact::all();
-        $services = Service::all();
-        return view('landing.home', compact('info', 'contacts', 'services'));
-    })->name('home');
-    // mapeo una variable get
-    Route::get('/{service}', function (Service $service) {
-        $info = Info::first();
-        $contacts = Contact::all();
-        $services = Service::all();
-        return view('landing.service', compact('info', 'contacts', 'services', 'service'));
-    })->name('service');
+    Route::get('/', [LandingController::class, 'home'])->name('home');
+
+    Route::get('services', [LandingController::class, 'services'])->name('services');
+
+    Route::get('service/{service}', [LandingController::class, 'service'])->name('service');
 });

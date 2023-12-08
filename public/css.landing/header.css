@@ -108,6 +108,8 @@ header .header nav ul li .sublist ul {
 
 header .header nav ul li .sublist ul li a {
     font-size: 1.2rem;
+    width: 100%;
+    text-align: center;
 }
 
 /* burguer menu*/
@@ -195,7 +197,8 @@ header .header button.menu svg {
     header .header nav {
         position: fixed;
         left: -100%;
-        bottom: 0;
+        top: var(--header-height-float);
+/*        bottom: 0;*/
         z-index: 100;
         width: 100%;
         max-width: 250px;
@@ -253,6 +256,7 @@ header .header button.menu svg {
 
     header .header nav ul li .sublist ul li a {
         font-size: 1rem;
+        text-align: left;
     }
 }
 

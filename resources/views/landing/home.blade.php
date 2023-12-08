@@ -4,6 +4,7 @@
 
 @section('head')
     <link rel="stylesheet" href="{{ asset('/public/css.landing/home.css') }}">
+    <link rel="stylesheet" href="{{ asset('/public/css.landing/services.component.css') }}">
 @endsection
 
 @section('content')
@@ -19,27 +20,30 @@
         </div>
     </section>
 
-    <section class="services">
+    @include('landing_partials.services')
+
+    <section class="videos">
         <div class="container">
-            <h2>New York City Wedding Photography and Video</h2>
-            <p>See our pricing information and get a quote for your Event or Portrait Shoot</p>
+            <h2>Videos</h2>
+            <p class="subtitle">Get to know a little more about our work</p>
             <ul>
-                @foreach ($services as $service)
+                @foreach ($videos as $video)
                     <li>
-                        <h4>{{ $service->service_name }}</h4>
-                        <div class="img">
-                            <img src="{{ asset($service->service_image_url) }}" alt="{{ $service->service_name }}">
+                        <h4>{{ $video->video_title }}</h4>
+                        <div class="video">
+                            {!! $video->video_iframe !!}
                         </div>
-                        <a href="{{ $service->service_url }}">See Gallery</a>
-                        <p>
-                            {{ $service->service_description }}
-                        </p>
                     </li>
                 @endforeach
             </ul>
-            <div class="banner">
-                <img src="{{ asset('/public/img/banner2.jpg') }}" alt="banner">
-            </div>
+            <p class="description">With over 10 years offering Professional Photography & Video for events. Our studio
+                specializes in creating
+                beautiful pieces of ART. We want our photographs to be full of emotions, happiness, fun, love and create
+                memories that you will love for a lifetime and allow you to relive the story of your day over and over
+                again. We create our beautiful images through a variety of off-camera flashes, using modifiers, colored
+                gels, LED lights, and natural light techniques using the latest technology. We believe that good customer
+                service and good quality of Photography & Video.</p>
+            <a href="#">View More..</a>
         </div>
     </section>
 @endsection

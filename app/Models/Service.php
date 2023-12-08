@@ -17,6 +17,6 @@ class Service extends Model
 
     public function getServiceUrlAttribute()
     {
-        return url('services', $this->attributes['service_id']);
+        return url('service', $this->attributes['id']);
     }
 }
