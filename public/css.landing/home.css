@@ -184,6 +184,22 @@ section.services .container ul li p {
     text-align: justify;
 }
 
+section.services .container .banner {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 8/5;
+    margin-top: 30px;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+section.services .container .banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 
 
 
@@ -198,6 +214,28 @@ section.services .container ul li p {
     }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*SECTION */
 
 
 

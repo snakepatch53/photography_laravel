@@ -59,6 +59,9 @@
                     </p>
                 </li>
             </ul>
+            <div class="banner">
+                <img src="{{ asset('/public/img/banner2.jpg') }}" alt="banner">
+            </div>
         </div>
     </section>
 @endsection
