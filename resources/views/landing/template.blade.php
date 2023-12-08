@@ -14,8 +14,8 @@
     <link rel="stylesheet" href="{{ asset('/public/css.landing/footer.css') }}">
     @yield('head')
     <title>
-        {{-- {{ $info['name'] }} --}}
-
+        {{ $info->info_name }}
+        -
         @yield('title')
     </title>
 </head>
@@ -121,36 +121,22 @@
                 </div>
                 <b>Follow Us</b>
                 <div class="social">
-                    <a href="#">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fab fa-youtube"></i>
-                    </a>
+                    @foreach ($contacts as $contact)
+                        <a href="{{ $contact->contact_link }}" target="_blank">
+                            <i class="{{ $contact->contact_icon }}"></i>
+                        </a>
+                    @endforeach
                 </div>
             </div>
 
             <div class="col col-2">
                 <h3>Services</h3>
                 <ul>
-                    <li>
-                        <a href="#">Vimage</a>
-                    </li>
-                    <li>
-                        <a href="#">Weddings</a>
-                    </li>
-                    <li>
-                        <a href="#">Quinces | Sweet 16's</a>
-                    </li>
-                    <li>
-                        <a href="#">Portraits</a>
-                    </li>
-                    <li>
-                        <a href="#">Products</a>
-                    </li>
+                    @foreach ($services as $service)
+                        <li>
+                            <a href="{{ $service->service_url }}">{{ $service->service_name }}</a>
+                        </li>
+                    @endforeach
                 </ul>
             </div>
 

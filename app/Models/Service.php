@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Service extends Model
 {
     use HasFactory;
+
+    protected $appends = ['service_image_url', 'service_url'];
+    public function getServiceImageUrlAttribute()
+    {
+        return asset('public/img.services/' . $this->attributes['service_image']);
+    }
+
+    public function getServiceUrlAttribute()
+    {
+        return url('services', $this->attributes['service_id']);
+    }
 }
