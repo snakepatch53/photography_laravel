@@ -46,7 +46,7 @@
                             <div class="sublist">
                                 <ul>
                                     @foreach ($services as $service)
-                                        <li>
+                                        <li class="{{ Route::is('service/' . $service->id) ? 'active' : '' }}">
                                             <a href="{{ $service->service_url }}">{{ $service->service_name }}</a>
                                         </li>
                                     @endforeach

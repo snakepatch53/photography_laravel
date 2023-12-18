@@ -75,7 +75,7 @@ header .header nav ul li:hover {
 header .header nav ul li a {
     padding: 10px;
     font-family: link;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: var(--color2-txt);
     text-decoration: none;
 }
