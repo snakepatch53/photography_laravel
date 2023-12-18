@@ -24,4 +24,6 @@ Route::group([], function () {
     Route::get('services', [LandingController::class, 'services'])->name('services');
 
     Route::get('service/{service}', [LandingController::class, 'service'])->name('service');
+
+    Route::get('contact', [LandingController::class, 'contact'])->name('contact');
 });

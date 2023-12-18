@@ -25,7 +25,6 @@ class LandingController extends Controller
 
     public function home()
     {
-
         [$info, $contacts, $services] = $this->general();
         $videos = Video::all();
         return view('landing.home', compact('info', 'contacts', 'services', 'videos'));
@@ -43,5 +42,11 @@ class LandingController extends Controller
         $service = Service::findOrFail($service);
         $photos = Photo::where('service_id', $service->id)->get();
         return view('landing.service', compact('info', 'contacts', 'services', 'service', 'photos'));
+    }
+
+    public function contact()
+    {
+        [$info, $contacts, $services] = $this->general();
+        return view('landing.contact', compact('info', 'contacts', 'services'));
     }
 }

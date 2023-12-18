@@ -100,8 +100,8 @@
                                 </ul>
                             </div>
                         </li>
-                        <li>
-                            <a href="#">Contact</a>
+                        <li class="{{ Route::is('contact') ? 'active' : '' }}">
+                            <a href="{{ route('contact') }}">Contact</a>
                         </li>
                         <li>
                             <a href="#">Blog</a>
