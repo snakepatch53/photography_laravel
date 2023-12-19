@@ -1,0 +1,121 @@
+section.blogs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--padding);
+}
+
+section.blogs .container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: var(--max-width);
+}
+
+section.blogs h3 {
+    position: relative;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+section.blogs h3:before {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(100% + 3px);
+    content: '';
+    display: block;
+    width: 50%;
+    height: 2px;
+    margin: auto;
+    border-radius: 5px;
+    background: var(--color1-bg);
+}
+
+section.blogs p {
+    text-align: center;
+}
+
+section.blogs .items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 50px;
+    width: 100%;
+    margin-top: 40px;
+}
+
+section.blogs .items .item {
+    width: 100%;
+    border-radius: 3px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+section.blogs .items .item .img {
+    width: 100%;
+    aspect-ratio: 3/2;
+}
+
+section.blogs .items .item .img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+section.blogs .items .item .text {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+section.blogs .items .item .text h4 {
+    text-align: center;
+    font-size: 2rem;
+    font-family: link;
+}
+
+section.blogs .items .item .text p {
+    display: block;
+    opacity: 0.7;
+    font-family: sans-serif;
+    text-align: justify;
+    text-overflow: ellipsis;
+    max-height: 100px;
+    overflow: hidden;
+    line-height: 1.5rem;
+}
+
+section.blogs .items .item .text a {
+    text-decoration: none;
+    color: var(--color2-txt);
+    text-align: center;
+    margin: auto;
+    margin-top: 20px;
+    padding: 15px;
+    border: solid 1px var(--color1-bg);
+    color: var(--color1-bg);
+    border-radius: 3px;
+    transition: all 0.2s ease;
+}
+
+section.blogs .items .item .text a:hover {
+    background: var(--color1-bg);
+    color: var(--color1-txt);
+    transition: all 0.2s ease;
+}
+
+@media (width < 1200px) {
+    section.blogs .items {
+        grid-gap: 20px;
+    }
+}
+
+@media (width < 1000px) {
+    section.blogs .items {
+        grid-template-columns: 1fr;
+        grid-gap: 40px;
+    }
+}

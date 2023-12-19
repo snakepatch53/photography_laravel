@@ -31,7 +31,9 @@ Route::group([], function () {
 
     Route::get('product/{product}', [LandingController::class, 'product'])->name('product');
 
-    Route::get('blog', [LandingController::class, 'blog'])->name('blog');
+    Route::get('blogs', [LandingController::class, 'blogs'])->name('blogs');
+
+    Route::get('blog/{blog}', [LandingController::class, 'blog'])->name('blog');
 
     Route::get('video360', [LandingController::class, 'video360'])->name('video360');
 });

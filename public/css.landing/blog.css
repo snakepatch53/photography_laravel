@@ -1,0 +1,225 @@
+section.blog {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--padding);
+}
+
+section.blog .container {
+    display: flex;
+    width: 100%;
+    max-width: var(--max-width);
+    gap: 10px;
+}
+
+section.blog .container .col {
+    display: flex;
+    flex-direction: column;
+}
+
+section.blog .container .col.static {
+    position: sticky;
+    top: var(--header-height-float);
+    gap: 20px;
+    width: 300px;
+    height: auto;
+    margin-bottom: auto;
+}
+
+section.blog .container .col.static a.p-link {
+    margin-top: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: var(--color2-txt);
+    transition: all 0.2s ease;
+}
+
+section.blog .container .col.static a.p-link:hover {
+    text-decoration: underline;
+    transition: all 0.2s ease;
+}
+
+section.blog .container .col.static ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    gap: 10px;
+}
+
+section.blog .container .col.static li {
+    display: block;
+    width: 100%;
+    height: 100px;
+    padding: 7px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+section.blog .container .col.static li:hover {
+    background: rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+}
+
+section.blog .container .col.static li.product-list {
+    height: 70px;
+}
+
+section.blog .container .col.static li.product-list .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    border: solid 1px var(--color1-bg);
+    color: var(--color1-bg);
+}
+
+section.blog .container .col.static li.product-list .icon svg {}
+
+section.blog .container .col.static li a {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: var(--color2-txt);
+    transition: all 0.2s ease;
+}
+
+section.blog .container .col.static li:hover a span {
+    text-decoration: underline;
+    transition: all 0.2s ease;
+}
+
+section.blog .container .col.static li a .img {
+    display: flex;
+    height: 100%;
+    aspect-ratio: 3/2;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+section.blog .container .col.static li a .img img {
+    width: 100%;
+    height: 100%;
+}
+
+section.blog .container .col.static li a .text {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+section.blog .container .col.static li a .text span {
+    white-space: nowrap;
+    font-size: 0.8rem;
+    text-align: left;
+    transition: all 0.2s ease;
+}
+
+section.blog .container .col.static li a .text p {
+    flex: 1;
+    height: 100%;
+    overflow: hidden;
+    font-family: sans-serif;
+    font-size: 0.8rem;
+    text-align: left;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+section.blog .container .col.content {
+    flex: 1;
+}
+
+section.blog h3 {
+    position: relative;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+section.blog h3:before {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(100% + 3px);
+    content: '';
+    display: block;
+    width: 50%;
+    height: 2px;
+    margin: auto;
+    border-radius: 5px;
+    background: var(--color1-bg);
+}
+
+section.blog p {
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+@media (width < 1000px) {
+    section.blog .container {
+        flex-direction: column-reverse;
+    }
+    
+    section.blog .container .col.static {
+        flex-direction: row;
+        width: 100%;
+    }
+}
+
+@media (width < 700px) {
+    section.blog .container {
+        flex-direction: column-reverse;
+    }
+    
+    section.blog .container .col.static {
+        flex-direction: column;
+    }
+}

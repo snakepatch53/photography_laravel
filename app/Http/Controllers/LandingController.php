@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use App\Models\Contact;
 use App\Models\Info;
 use App\Models\Photo;
@@ -66,10 +67,18 @@ class LandingController extends Controller
         return view('landing.product', compact('info', 'contacts', 'services', 'products', 'product'));
     }
 
-    public function blog()
+    public function blogs()
     {
         [$info, $contacts, $services, $products] = $this->general();
-        return view('landing.blog', compact('info', 'contacts', 'services', 'products'));
+        $blogs = Blog::all();
+        return view('landing.blogs', compact('info', 'contacts', 'services', 'products', 'blogs'));
+    }
+
+    public function blog($blog)
+    {
+        [$info, $contacts, $services, $products] = $this->general();
+        $blog = Blog::findOrFail($blog);
+        return view('landing.blog', compact('info', 'contacts', 'services', 'products', 'blog'));
     }
 
     public function video360()

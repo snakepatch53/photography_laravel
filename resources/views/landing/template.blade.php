@@ -68,8 +68,8 @@
                         <li class="{{ Route::is('contact') ? 'active' : '' }}">
                             <a href="{{ route('contact') }}">Contact</a>
                         </li>
-                        <li class="{{ Route::is('blog') ? 'active' : '' }}">
-                            <a href="{{ route('blog') }}">Blog</a>
+                        <li class="{{ Route::is('blogs') ? 'active' : '' }}">
+                            <a href="{{ route('blogs') }}">Blogs</a>
                         </li>
                         <li class="{{ Route::is('video360') ? 'active' : '' }}">
                             <a href="{{ route('video360') }}">Video 360</a>
@@ -132,7 +132,7 @@
                         <a href="{{ route('contact') }}">Contact</a>
                     </li>
                     <li>
-                        <a href="{{ route('blog') }}">Blog</a>
+                        <a href="{{ route('blogs') }}">Blogs</a>
                     </li>
                     <li>
                         <a href="{{ route('video360') }}">Video 360</a>
