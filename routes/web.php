@@ -1,10 +1,6 @@
 <?php
 
 use App\Http\Controllers\LandingController;
-use App\Models\Contact;
-use App\Models\Info;
-use App\Models\Service;
-use App\Models\Video;
 use Illuminate\Support\Facades\Route;
 
 /*
