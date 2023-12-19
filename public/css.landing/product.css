@@ -1,0 +1,58 @@
+section.product {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: var(--padding);
+}
+
+section.product .container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: var(--max-width);
+}
+
+section.product h3 {
+    position: relative;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+section.product h3:before {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(100% + 3px);
+    content: '';
+    display: block;
+    width: 50%;
+    height: 2px;
+    margin: auto;
+    border-radius: 5px;
+    background: var(--color1-bg);
+}
+
+section.product p.subtitle {
+    text-align: center;
+}
+
+section.product .content {
+    padding: 50px 0;
+}
+
+section.product .content * {
+    font-family: sans-serif;
+    line-height: 1.5rem;
+    text-align: justify;
+}
+
+section.product .content b {
+    font-weight: bold;
+}
+
+section.product .content p {
+    margin: 20px 0;
+}

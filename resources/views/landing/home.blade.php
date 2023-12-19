@@ -5,6 +5,7 @@
 @section('head')
     <link rel="stylesheet" href="{{ asset('/public/css.landing/home.css') }}">
     <link rel="stylesheet" href="{{ asset('/public/css.landing/services.component.css') }}">
+    <link rel="stylesheet" href="{{ asset('/public/css.landing/products.component.css') }}">
 @endsection
 
 @section('content')
@@ -46,4 +47,7 @@
             <a href="#">View More..</a>
         </div>
     </section>
+
+    <br>
+    @include('landing_partials.products')
 @endsection

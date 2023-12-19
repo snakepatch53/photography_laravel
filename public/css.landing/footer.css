@@ -35,6 +35,7 @@ footer .col-1 .logo a {
 
 footer .col-1 .logo a img {
     width: 100%;
+    pointer-events: all;
 }
 
 footer .col-1 b {

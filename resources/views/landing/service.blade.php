@@ -1,6 +1,6 @@
 @extends('landing.template')
 
-@section('title', 'Service ' . $service)
+@section('title', $service->service_name)
 
 @section('head')
     <link rel="stylesheet" href="{{ asset('/public/css.landing/service.css') }}">

@@ -30,7 +30,7 @@
                 </button>
 
                 <div class="logo">
-                    <a href="#">
+                    <a href="{{ route('home') }}">
                         <img src="{{ asset('/public/img/logo.png') }}" alt="logo">
                     </a>
                 </div>
@@ -53,64 +53,26 @@
                                 </ul>
                             </div>
                         </li>
-                        {{-- 
-                            <li>
-                            <a href="#">Weddings</a>
+                        <li class="{{ Route::is('products') ? 'active' : '' }}">
+                            <a href="{{ route('products') }}">Products</a>
                             <div class="sublist">
                                 <ul>
-                                    <li>
-                                        <a href="#">Engagement Sessions</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="#">Quinces | Sweet 16's</a>
-                            <div class="sublist">
-                                <ul>
-                                    <li>
-                                        <a href="#">Pre Event Photo Shoot</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="#">Portraits</a>
-                            <div class="sublist">
-                                <ul>
-                                    <li>
-                                        <a href="#">Creative Head Shoot</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li> --}}
-                        <li>
-                            <a href="#">Products</a>
-                            <div class="sublist">
-                                <ul>
-                                    <li>
-                                        <a href="#">Multi-Camera Video</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Video Cinematico</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Drone</a>
-                                    </li>
+                                    @foreach ($products as $product)
+                                        <li class="{{ Route::is('product/' . $product->id) ? 'active' : '' }}">
+                                            <a href="{{ $product->product_url }}">{{ $product->product_name }}</a>
+                                        </li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </li>
                         <li class="{{ Route::is('contact') ? 'active' : '' }}">
                             <a href="{{ route('contact') }}">Contact</a>
                         </li>
-                        <li>
-                            <a href="#">Blog</a>
+                        <li class="{{ Route::is('blog') ? 'active' : '' }}">
+                            <a href="{{ route('blog') }}">Blog</a>
                         </li>
-                        <li>
-                            <a href="#">Expo</a>
-                        </li>
-                        <li>
-                            <a href="#">Vimage360</a>
+                        <li class="{{ Route::is('video360') ? 'active' : '' }}">
+                            <a href="{{ route('video360') }}">Video 360</a>
                         </li>
                     </ul>
                 </nav>
@@ -129,7 +91,7 @@
         <div class="container">
             <div class="col col-1">
                 <div class="logo">
-                    <a href="#">
+                    <a href="{{ route('home') }}">
                         <img src="{{ asset('/public/img/logo.png') }}" alt="logo">
                     </a>
                 </div>
@@ -158,19 +120,22 @@
                 <h3>Company</h3>
                 <ul>
                     <li>
-                        <a href="#">About Us</a>
+                        <a href="{{ route('home') }}">Home</a>
                     </li>
                     <li>
-                        <a href="#">Contact Us</a>
+                        <a href="{{ route('services') }}">Services</a>
                     </li>
                     <li>
-                        <a href="#">Blog</a>
+                        <a href="{{ route('products') }}">Products</a>
                     </li>
                     <li>
-                        <a href="#">Expo</a>
+                        <a href="{{ route('contact') }}">Contact</a>
                     </li>
                     <li>
-                        <a href="#">Vimage360</a>
+                        <a href="{{ route('blog') }}">Blog</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('video360') }}">Video 360</a>
                     </li>
                 </ul>
             </div>
