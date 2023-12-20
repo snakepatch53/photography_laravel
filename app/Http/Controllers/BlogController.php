@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
-use App\Http\Requests\StoreBlogRequest;
-use App\Http\Requests\UpdateBlogRequest;
+use Illuminate\Http\Request;
 
+/**
+ * Class BlogController
+ * @package App\Http\Controllers
+ */
 class BlogController extends Controller
 {
     /**
@@ -15,7 +18,10 @@ class BlogController extends Controller
      */
     public function index()
     {
-        //
+        $blogs = Blog::paginate();
+
+        return view('blog.index', compact('blogs'))
+            ->with('i', (request()->input('page', 1) - 1) * $blogs->perPage());
     }
 
     /**
@@ -25,62 +31,79 @@ class BlogController extends Controller
      */
     public function create()
     {
-        //
+        $blog = new Blog();
+        return view('blog.create', compact('blog'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreBlogRequest  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreBlogRequest $request)
+    public function store(Request $request)
     {
-        //
+        request()->validate(Blog::$rules);
+
+        $blog = Blog::create($request->all());
+
+        return redirect()->route('blogs.index')
+            ->with('success', 'Blog created successfully.');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Blog  $blog
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Blog $blog)
+    public function show($id)
     {
-        //
+        $blog = Blog::find($id);
+
+        return view('blog.show', compact('blog'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Blog  $blog
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Blog $blog)
+    public function edit($id)
     {
-        //
+        $blog = Blog::find($id);
+
+        return view('blog.edit', compact('blog'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateBlogRequest  $request
-     * @param  \App\Models\Blog  $blog
+     * @param  \Illuminate\Http\Request $request
+     * @param  Blog $blog
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateBlogRequest $request, Blog $blog)
+    public function update(Request $request, Blog $blog)
     {
-        //
+        request()->validate(Blog::$rules);
+
+        $blog->update($request->all());
+
+        return redirect()->route('blogs.index')
+            ->with('success', 'Blog updated successfully');
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Blog  $blog
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
      */
-    public function destroy(Blog $blog)
+    public function destroy($id)
     {
-        //
+        $blog = Blog::find($id)->delete();
+
+        return redirect()->route('blogs.index')
+            ->with('success', 'Blog deleted successfully');
     }
 }

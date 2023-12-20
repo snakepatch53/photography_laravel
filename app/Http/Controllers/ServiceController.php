@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Service;
-use App\Http\Requests\StoreServiceRequest;
-use App\Http\Requests\UpdateServiceRequest;
+use Illuminate\Http\Request;
 
+/**
+ * Class ServiceController
+ * @package App\Http\Controllers
+ */
 class ServiceController extends Controller
 {
     /**
@@ -15,7 +18,10 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        //
+        $services = Service::paginate();
+
+        return view('service.index', compact('services'))
+            ->with('i', (request()->input('page', 1) - 1) * $services->perPage());
     }
 
     /**
@@ -25,62 +31,79 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        //
+        $service = new Service();
+        return view('service.create', compact('service'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreServiceRequest  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreServiceRequest $request)
+    public function store(Request $request)
     {
-        //
+        request()->validate(Service::$rules);
+
+        $service = Service::create($request->all());
+
+        return redirect()->route('services.index')
+            ->with('success', 'Service created successfully.');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Service  $service
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Service $service)
+    public function show($id)
     {
-        //
+        $service = Service::find($id);
+
+        return view('service.show', compact('service'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Service  $service
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Service $service)
+    public function edit($id)
     {
-        //
+        $service = Service::find($id);
+
+        return view('service.edit', compact('service'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateServiceRequest  $request
-     * @param  \App\Models\Service  $service
+     * @param  \Illuminate\Http\Request $request
+     * @param  Service $service
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateServiceRequest $request, Service $service)
+    public function update(Request $request, Service $service)
     {
-        //
+        request()->validate(Service::$rules);
+
+        $service->update($request->all());
+
+        return redirect()->route('services.index')
+            ->with('success', 'Service updated successfully');
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Service  $service
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
      */
-    public function destroy(Service $service)
+    public function destroy($id)
     {
-        //
+        $service = Service::find($id)->delete();
+
+        return redirect()->route('services.index')
+            ->with('success', 'Service deleted successfully');
     }
 }

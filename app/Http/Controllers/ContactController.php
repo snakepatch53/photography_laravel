@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
-use App\Http\Requests\StoreContactRequest;
-use App\Http\Requests\UpdateContactRequest;
+use Illuminate\Http\Request;
 
+/**
+ * Class ContactController
+ * @package App\Http\Controllers
+ */
 class ContactController extends Controller
 {
     /**
@@ -15,7 +18,10 @@ class ContactController extends Controller
      */
     public function index()
     {
-        //
+        $contacts = Contact::paginate();
+
+        return view('contact.index', compact('contacts'))
+            ->with('i', (request()->input('page', 1) - 1) * $contacts->perPage());
     }
 
     /**
@@ -25,62 +31,79 @@ class ContactController extends Controller
      */
     public function create()
     {
-        //
+        $contact = new Contact();
+        return view('contact.create', compact('contact'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreContactRequest  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreContactRequest $request)
+    public function store(Request $request)
     {
-        //
+        request()->validate(Contact::$rules);
+
+        $contact = Contact::create($request->all());
+
+        return redirect()->route('contacts.index')
+            ->with('success', 'Contact created successfully.');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Contact  $contact
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Contact $contact)
+    public function show($id)
     {
-        //
+        $contact = Contact::find($id);
+
+        return view('contact.show', compact('contact'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Contact  $contact
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Contact $contact)
+    public function edit($id)
     {
-        //
+        $contact = Contact::find($id);
+
+        return view('contact.edit', compact('contact'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateContactRequest  $request
-     * @param  \App\Models\Contact  $contact
+     * @param  \Illuminate\Http\Request $request
+     * @param  Contact $contact
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateContactRequest $request, Contact $contact)
+    public function update(Request $request, Contact $contact)
     {
-        //
+        request()->validate(Contact::$rules);
+
+        $contact->update($request->all());
+
+        return redirect()->route('contacts.index')
+            ->with('success', 'Contact updated successfully');
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Contact  $contact
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
      */
-    public function destroy(Contact $contact)
+    public function destroy($id)
     {
-        //
+        $contact = Contact::find($id)->delete();
+
+        return redirect()->route('contacts.index')
+            ->with('success', 'Contact deleted successfully');
     }
 }

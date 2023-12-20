@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Video;
-use App\Http\Requests\StoreVideoRequest;
-use App\Http\Requests\UpdateVideoRequest;
+use Illuminate\Http\Request;
 
+/**
+ * Class VideoController
+ * @package App\Http\Controllers
+ */
 class VideoController extends Controller
 {
     /**
@@ -15,7 +18,10 @@ class VideoController extends Controller
      */
     public function index()
     {
-        //
+        $videos = Video::paginate();
+
+        return view('video.index', compact('videos'))
+            ->with('i', (request()->input('page', 1) - 1) * $videos->perPage());
     }
 
     /**
@@ -25,62 +31,79 @@ class VideoController extends Controller
      */
     public function create()
     {
-        //
+        $video = new Video();
+        return view('video.create', compact('video'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreVideoRequest  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreVideoRequest $request)
+    public function store(Request $request)
     {
-        //
+        request()->validate(Video::$rules);
+
+        $video = Video::create($request->all());
+
+        return redirect()->route('videos.index')
+            ->with('success', 'Video created successfully.');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Video  $video
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Video $video)
+    public function show($id)
     {
-        //
+        $video = Video::find($id);
+
+        return view('video.show', compact('video'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Video  $video
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Video $video)
+    public function edit($id)
     {
-        //
+        $video = Video::find($id);
+
+        return view('video.edit', compact('video'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateVideoRequest  $request
-     * @param  \App\Models\Video  $video
+     * @param  \Illuminate\Http\Request $request
+     * @param  Video $video
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateVideoRequest $request, Video $video)
+    public function update(Request $request, Video $video)
     {
-        //
+        request()->validate(Video::$rules);
+
+        $video->update($request->all());
+
+        return redirect()->route('videos.index')
+            ->with('success', 'Video updated successfully');
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Video  $video
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
      */
-    public function destroy(Video $video)
+    public function destroy($id)
     {
-        //
+        $video = Video::find($id)->delete();
+
+        return redirect()->route('videos.index')
+            ->with('success', 'Video deleted successfully');
     }
 }

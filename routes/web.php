@@ -1,6 +1,13 @@
 <?php
 
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\LandingController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\VideoController;
+use App\Models\Video;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,4 +39,20 @@ Route::group([], function () {
     Route::get('blog/{blog}', [LandingController::class, 'blog'])->name('blog');
 
     Route::get('video360', [LandingController::class, 'video360'])->name('video360');
+});
+
+Route::group(['prefix' => 'panel'], function () {
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+    Route::resource('services', ServiceController::class);
+
+    Route::resource('contacts', ContactController::class);
+
+    Route::resource('products', ProductController::class);
+
+    Route::resource('videos', VideoController::class);
+
+    Route::resource('blogs', BlogController::class);
+
+    Auth::routes();
 });
